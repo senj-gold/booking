@@ -1,0 +1,21 @@
+<div class="container" ng-repeat="(keySector, sector) in sectors" >
+    <div class="welcome">
+        <h1>
+            <span>Sector <i> {{ keySector }} </i></span>
+            <span>Free: <i> {{ sector.countFree }}</i></span>
+            <span>Booking: <i>{{ sector.countBooking }}</i></span>
+        </h1>
+    </div>
+    <table>
+        <tr ng-repeat="(keyRow, row) in sector.rows">
+            <td  ng-repeat="(keyPlace, place) in row">
+                <div
+                        data-sector="{{ keySector }}"
+                        data-url="/api/v1/reservations/{{ keySector }}/{{keyRow}}/{{ keyPlace}}"
+                        class="{{ place ? 'active' : ''}}"
+                        ng-click="bookingPlace($event, keySector, keyRow, keyPlace)"
+                ></div>
+            </td>
+        </tr>
+    </table>
+</div>

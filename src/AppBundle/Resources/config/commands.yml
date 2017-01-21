@@ -1,0 +1,6 @@
+services:
+    sector.command.redis_to_db:
+        class: AppBundle\Command\SectorRedisToDBCommand
+        arguments: ["@doctrine.orm.entity_manager", "@snc_redis.sector"]
+        tags:
+            -  { name: console.command }

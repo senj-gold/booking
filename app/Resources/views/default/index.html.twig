@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="wrapper" ng-app="app" ng-hide>
+        <div ng-controller="Sector">
+            <div ng-show="loadAnimation" class="se-pre-con"></div>
+            <div ng-include="'/bundles/app/html/sector.html'">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/main.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/plugins/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/plugins/angular-1.4.3.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/service/loaderService.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/app.js') }}"></script>
+{% endblock %}
